@@ -1,6 +1,6 @@
 # Train a Smartcab How to Drive
 
-Reinforcement Learning Project
+Udacity Machine Learning - Reinforcement Learning Project
 
 ## Install
 

@@ -1,4 +1,4 @@
-import random
+import random, operator
 from environment import Agent, Environment
 from planner import RoutePlanner
 from simulator import Simulator
@@ -6,16 +6,47 @@ from simulator import Simulator
 class LearningAgent(Agent):
     """An agent that learns to drive in the smartcab world."""
 
+    VALID_ACTIONS = [None, 'forward', 'left', 'right']
+    INITIAL_Q_VALUES = 0.0
+
     def __init__(self, env):
         super(LearningAgent, self).__init__(env)  # sets self.env = env, state = None, next_waypoint = None, and a default color
         self.color = 'red'  # override color
         self.planner = RoutePlanner(self.env, self)  # simple route planner to get next_waypoint
 
         # TODO: Initialize any additional variables here
+        # Q-Learning Implementation following methods here (http://artint.info/html/ArtInt_265.html)
+        self.Q = {} #hashable Q-Table
+        self.epsilon = 0.5 # randomness 0.5 == 50% random action
+        self.alpha = 0.2 # learning rate
+
+        # if gamma == 1, the agent values future reward just as much as current reward
+        # learning doesn't work well at high gamma values because of this
+        self.gamma = 0.95 # future reward value multiplier
+
+        # setup empty Q-Table
+        for light_state in ['green', 'red']: # cycle through light state possibilites
+            for oncoming_traffic_state in self.VALID_ACTIONS: # cycle through oncoming traffic state possiblities
+                for right_traffic_state in self.VALID_ACTIONS: # cycle through right traffic state possiblities
+                    for left_traffic_state in self.VALID_ACTIONS: # cycle through left traffic state possibilites
+                        for waypoint_state in self.VALID_ACTIONS[1:]: # cycle through way point possibilites, slice off NONE
+                            # record each state
+                            state = (light_state, oncoming_traffic_state,
+                                    right_traffic_state, left_traffic_state,
+                                    waypoint_state)
+
+                            # for each state point to dictionary of actions and values
+                            self.Q[state] = {}
+                            for action in self.VALID_ACTIONS:
+                                self.Q[state][action] = self.INITIAL_Q_VALUES
+
+
+        self.state = None
 
     def reset(self, destination=None):
         self.planner.route_to(destination)
         # TODO: Prepare for a new trip; reset any variables here, if required
+
 
     def update(self, t):
         # Gather inputs
@@ -23,19 +54,62 @@ class LearningAgent(Agent):
         inputs = self.env.sense(self)
         deadline = self.env.get_deadline(self)
 
-        # Update state
+        # TODO: Update state
         self.state = (inputs['light'], inputs['oncoming'], inputs['right'],
                       inputs['left'], self.next_waypoint)
 
+
         # TODO: Select action according to your policy
-        action = random.choice((None, 'forward', 'left', 'right'))
+        if random.random() < self.epsilon:  # add randomness to the choice
+            best_action = random.choice(self.VALID_ACTIONS)
+        else:
+            best_action = None
+            max_Q = None
+            #cycle through Q values for the given state looking for maximum
+            for possible_action in self.Q[self.state]:
+                if self.Q[self.state][possible_action] > max_Q:
+                    best_action = possible_action
+                    max_Q = self.Q[self.state][possible_action]
+
+        #GLIE (decayed epsilon) Udacity: https://youtu.be/yv8wJiQQ1rc
+        self.epsilon *= 0.99
 
         # Execute action and get reward
-        reward = self.env.act(self, action)
+        reward = self.env.act(self, best_action)
 
         # TODO: Learn policy based on state, action, reward
+        # Estimating Q From Transitions - Udacity: https://youtu.be/Xr2U3BTkifQ
+        # need to calculate utility of the state
+        state = self.state
 
-        print "LearningAgent.update(): deadline = {}, inputs = {}, action = {}, reward = {}".format(deadline, inputs, action, reward)  # [debug]
+        # STEP 1: First find utility of the next state
+        s_prime_inputs = self.env.sense(self) #rense after act
+        s_prime_waypoint = self.planner.next_waypoint() #next waypoint
+        s_prime = (s_prime_inputs['light'], s_prime_inputs['oncoming'],
+            s_prime_inputs['right'], s_prime_inputs['left'], s_prime_waypoint)
+
+        utility_of_next_state = None
+        # cycle through each action_prime in state_prime searching for Max Q
+        for a_prime in self.Q[s_prime]:
+            if self.Q[s_prime][a_prime] > utility_of_next_state:
+                utility_of_next_state = self.Q[s_prime][a_prime]
+
+        #STEP 2: Find the utility of the state
+        utility_of_state = reward + self.gamma * utility_of_next_state
+
+        # update Q Table
+        # transition by learning rate Q<s,a> = (1 - alpha) * Q<s,a> + alpha * utility_of_state
+        self.Q[state][best_action] = (1 - self.alpha) * \
+            self.Q[state][best_action] + self.alpha * utility_of_state
+
+        # Update Learning Rate - Udacity: Learning Incrementally: https://youtu.be/FtRJKOvI_fs
+        if t != 0:
+            self.alpha = 1.0 / t
+
+        #sanity check
+        print self.Q[state]
+
+        print "LearningAgent.update(): deadline = {}, inputs = {}, action = {}, reward = {}".format(deadline, inputs, best_action, reward)  # [debug]
 
 
 def run():
@@ -44,11 +118,14 @@ def run():
     # Set up environment and agent
     e = Environment()  # create environment (also adds some dummy traffic)
     a = e.create_agent(LearningAgent)  # create agent
-    e.set_primary_agent(a, enforce_deadline=False)  # set agent to track
+    e.set_primary_agent(a, enforce_deadline=True)  # set agent to track
 
+    #record gamma value as first line of print output
+    print 'Gamma: {}'.format(a.gamma)
+    
     # Now simulate it
-    sim = Simulator(e, update_delay=1.0)  # reduce update_delay to speed up simulation
-    sim.run(n_trials=10)  # press Esc or close pygame window to quit
+    sim = Simulator(e, update_delay=0.0001)  # reduce update_delay to speed up simulation
+    sim.run(n_trials=100)  # press Esc or close pygame window to quit
 
 
 if __name__ == '__main__':
