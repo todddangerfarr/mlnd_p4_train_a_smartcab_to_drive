@@ -1,0 +1,283 @@
+Gamma: 0.8, Epsilon: 0.6, Epsilon_Decay: 0.97
+Simulator.run(): Trial 0
+Environment.reset(): Trial set up with start = (1, 2), destination = (5, 4), deadline = 30
+RoutePlanner.route_to(): destination = (5, 4)
+{'forward': 0.0, None: 0.0, 'right': 0.0, 'left': 0.1}
+LearningAgent.update(): deadline = 30, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 29, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = forward, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.0, 'left': 0.5}
+LearningAgent.update(): deadline = 28, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.0, None: 0.0, 'right': 0.0, 'left': 0.3}
+LearningAgent.update(): deadline = 27, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3333333333333333, None: 0.0, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 26, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = forward, reward = -1
+{'forward': -0.3333333333333333, None: 0.0, 'right': 0.56, 'left': 0.0}
+LearningAgent.update(): deadline = 25, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.0, None: 0.0, 'right': 0.0, 'left': 0.42000000000000004}
+LearningAgent.update(): deadline = 24, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 0.5}
+LearningAgent.update(): deadline = 23, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.0, None: 0.0, 'right': 0.07142857142857142, 'left': 0.42000000000000004}
+LearningAgent.update(): deadline = 22, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 0.5
+{'forward': 0.0, None: 0.0, 'right': 0.11850000000000001, 'left': 0.0}
+LearningAgent.update(): deadline = 21, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 0.5
+{'forward': 0.0, None: 0.0, 'right': 0.0, 'left': -0.1111111111111111}
+LearningAgent.update(): deadline = 20, inputs = {'light': 'red', 'oncoming': None, 'right': 'right', 'left': None}, action = left, reward = -1
+{'forward': -0.3333333333333333, None: 0.0, 'right': 0.7488000000000001, 'left': 0.0}
+LearningAgent.update(): deadline = 19, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.3394812121212121, None: 0.0, 'right': 0.7488000000000001, 'left': 0.0}
+LearningAgent.update(): deadline = 18, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = forward, reward = -1
+{'forward': -0.3394812121212121, None: 0.0, 'right': 0.8530666666666668, 'left': 0.0}
+LearningAgent.update(): deadline = 17, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.07692307692307693, None: 0.0, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 16, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = forward, reward = -1
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.07142857142857142, 'left': 0.42000000000000004}
+LearningAgent.update(): deadline = 15, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.07142857142857142, 'left': 0.45200000000000007}
+LearningAgent.update(): deadline = 14, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 0.525}
+LearningAgent.update(): deadline = 13, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 0.5291058823529412}
+LearningAgent.update(): deadline = 12, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.0, None: 0.0, 'right': 0.17760851851851855, 'left': 0.0}
+LearningAgent.update(): deadline = 11, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 0.9493501754385967, 'left': 0.0}
+LearningAgent.update(): deadline = 10, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.3394812121212121, None: 0.0, 'right': 1.001882666666667, 'left': 0.0}
+LearningAgent.update(): deadline = 9, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.07692307692307693, None: 0.047619047619047616, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 8, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': -0.07692307692307693, None: 0.09264069264069265, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 7, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': -0.07692307692307693, None: 0.13531338226990403, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 6, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.07142857142857142, 'left': 0.45400000000000007}
+LearningAgent.update(): deadline = 5, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 1.0563353600000003, 'left': 0.0}
+LearningAgent.update(): deadline = 4, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.07142857142857142, 'left': 0.47204941176470594}
+LearningAgent.update(): deadline = 3, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 0.5280278867102397}
+LearningAgent.update(): deadline = 2, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 0.5321014198568317}
+LearningAgent.update(): deadline = 1, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.0, None: 0.0, 'right': 0.2178657519489145, 'left': 0.0}
+LearningAgent.update(): deadline = 0, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 0.5
+Environment.reset(): Primary agent could not reach destination within deadline!
+Simulator.run(): Trial 1
+Environment.reset(): Trial set up with start = (8, 4), destination = (4, 1), deadline = 35
+RoutePlanner.route_to(): destination = (4, 1)
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 0.5436193568419961}
+LearningAgent.update(): deadline = 35, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.07142857142857142, 'left': 0.48747761422166896}
+LearningAgent.update(): deadline = 34, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 0.8899820913773352}
+LearningAgent.update(): deadline = 33, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 0.48747761422166896}
+LearningAgent.update(): deadline = 32, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 0.5
+{'forward': -0.3333333333333333, None: 0.0, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 31, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = forward, reward = -1
+{'forward': -0.5, None: 0.0, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 30, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = forward, reward = -1
+{'forward': 0.0, None: 0.0, 'right': 0.3522890198345987, 'left': 0.0}
+LearningAgent.update(): deadline = 29, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 0.5
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 0.6082289573683688}
+LearningAgent.update(): deadline = 28, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1921526125714286, None: 0.0, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 27, inputs = {'light': 'green', 'oncoming': None, 'right': 'forward', 'left': None}, action = forward, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 1.1878247782269906, 'left': 0.0}
+LearningAgent.update(): deadline = 26, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.07692307692307693, None: 0.2434175293305728, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 25, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': -0.07692307692307693, None: 0.3385491787439614, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 24, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 0.6631159315259597}
+LearningAgent.update(): deadline = 23, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 0.9366719023110233}
+LearningAgent.update(): deadline = 22, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 1.3233967047158062, 'left': 0.0}
+LearningAgent.update(): deadline = 21, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 0.9054810521459502}
+LearningAgent.update(): deadline = 20, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.07692307692307693, None: 0.4007018563607086, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 19, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': -0.07692307692307693, None: 0.4581930831561998, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 18, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': -0.07692307692307693, None: 0.5116261057073033, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 17, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': -0.07692307692307693, None: 0.5614969267549998, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 16, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 0.6926564004833703}
+LearningAgent.update(): deadline = 15, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 1.3849331254993504, 'left': 0.0}
+LearningAgent.update(): deadline = 14, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 0.7362416433365183}
+LearningAgent.update(): deadline = 13, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 1.4333087807677438, 'left': 0.0}
+LearningAgent.update(): deadline = 12, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 0.7758244860007651}
+LearningAgent.update(): deadline = 11, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 1.4827817311024467, 'left': 0.0}
+LearningAgent.update(): deadline = 10, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 0.8122405219560128}
+LearningAgent.update(): deadline = 9, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 0.9177465825140583}
+LearningAgent.update(): deadline = 8, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 0.9127126800456739}
+LearningAgent.update(): deadline = 7, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.0, None: 0.0, 'right': 0.3999296043005758, 'left': 0.0}
+LearningAgent.update(): deadline = 6, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 1.5415211674396714, 'left': 0.0}
+LearningAgent.update(): deadline = 5, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.3394812121212121, None: 0.0, 'right': 1.5717770465718157, 'left': 0.0}
+LearningAgent.update(): deadline = 4, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.07692307692307693, None: 0.5614969267549998, 'right': 0.0, 'left': -0.01776782124503226}
+LearningAgent.update(): deadline = 3, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = -1
+{'forward': -0.07692307692307693, None: 0.5892375709627812, 'right': 0.0, 'left': -0.01776782124503226}
+LearningAgent.update(): deadline = 2, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': -0.07692307692307693, None: 0.6159694644720977, 'right': 0.0, 'left': -0.01776782124503226}
+LearningAgent.update(): deadline = 1, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 0.8030569771926006}
+LearningAgent.update(): deadline = 0, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+Environment.reset(): Primary agent could not reach destination within deadline!
+Simulator.run(): Trial 2
+Environment.reset(): Trial set up with start = (1, 6), destination = (1, 2), deadline = 20
+RoutePlanner.route_to(): destination = (1, 2)
+{'forward': -0.3394812121212121, None: 0.0, 'right': 1.6023675761484517, 'left': 0.0}
+LearningAgent.update(): deadline = 20, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 0.831023751013348}
+LearningAgent.update(): deadline = 19, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 2.6648190008106782, 'left': 0.0}
+LearningAgent.update(): deadline = 18, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 1.0305969475249435}
+LearningAgent.update(): deadline = 17, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 1.4857601869132968}
+LearningAgent.update(): deadline = 16, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 2.498614250608009, 'left': 0.0}
+LearningAgent.update(): deadline = 15, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.3394812121212121, None: 0.0, 'right': 2.497446514801943, 'left': 0.0}
+LearningAgent.update(): deadline = 14, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.07692307692307693, None: 0.7621038156563611, 'right': 0.0, 'left': -0.01776782124503226}
+LearningAgent.update(): deadline = 13, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': -0.07692307692307693, None: 0.8831865637804651, 'right': 0.0, 'left': -0.01776782124503226}
+LearningAgent.update(): deadline = 12, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': -0.07692307692307693, None: 0.9861068996859534, 'right': 0.0, 'left': -0.01776782124503226}
+LearningAgent.update(): deadline = 11, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 1.1037093033033538}
+LearningAgent.update(): deadline = 10, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 1.5869798894061227}
+LearningAgent.update(): deadline = 9, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 1.517249325227426}
+LearningAgent.update(): deadline = 8, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.0, None: 0.0, 'right': 0.4349307775622328, 'left': 0.0}
+LearningAgent.update(): deadline = 7, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 0.5
+{'forward': 0.0, None: 0.0, 'right': 0.5333052916099027, 'left': 0.0}
+LearningAgent.update(): deadline = 6, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 2.5249837239334245, 'left': 0.0}
+LearningAgent.update(): deadline = 5, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.07692307692307693, None: 1.0396254743568074, 'right': 0.0, 'left': -0.01776782124503226}
+LearningAgent.update(): deadline = 4, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': -0.07692307692307693, None: 1.0891301559273474, 'right': 0.0, 'left': -0.01776782124503226}
+LearningAgent.update(): deadline = 3, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': -0.07692307692307693, None: 1.1351403893870256, 'right': 0.0, 'left': -0.01776782124503226}
+LearningAgent.update(): deadline = 2, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': -0.07692307692307693, None: 1.178083273949392, 'right': 0.0, 'left': -0.01776782124503226}
+LearningAgent.update(): deadline = 1, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 1.1782502336109006}
+LearningAgent.update(): deadline = 0, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+Environment.reset(): Primary agent could not reach destination within deadline!
+Simulator.run(): Trial 3
+Environment.reset(): Trial set up with start = (7, 2), destination = (2, 5), deadline = 40
+RoutePlanner.route_to(): destination = (2, 5)
+{'forward': -0.3394812121212121, None: 0.0, 'right': 2.5997338866940902, 'left': 0.0}
+LearningAgent.update(): deadline = 40, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.3394812121212121, None: 0.0, 'right': 2.6168705233173615, 'left': 0.0}
+LearningAgent.update(): deadline = 39, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.07692307692307693, None: 1.178083273949392, 'right': 0.0, 'left': -0.057533380840486315}
+LearningAgent.update(): deadline = 38, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = -1
+{'forward': -0.07692307692307693, None: 1.5602749465544528, 'right': 0.0, 'left': -0.057533380840486315}
+LearningAgent.update(): deadline = 37, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 1.3567666424679141}
+LearningAgent.update(): deadline = 36, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 1.7863110985840418}
+LearningAgent.update(): deadline = 35, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 2.9121957023846674, 'left': 0.0}
+LearningAgent.update(): deadline = 34, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.3394812121212121, None: 0.0, 'right': 2.96819974486115, 'left': 0.0}
+LearningAgent.update(): deadline = 33, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.07692307692307693, None: 1.6585528052243257, 'right': 0.0, 'left': -0.057533380840486315}
+LearningAgent.update(): deadline = 32, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 1.428301922017829}
+LearningAgent.update(): deadline = 31, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 1.9072276205068057}
+LearningAgent.update(): deadline = 30, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 2.871379770375035, 'left': 0.0}
+LearningAgent.update(): deadline = 29, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.3394812121212121, None: 0.0, 'right': 2.8960399310331466, 'left': 0.0}
+LearningAgent.update(): deadline = 28, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 1.5440127572518865}
+LearningAgent.update(): deadline = 27, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 2.92917857050594, 'left': 0.0}
+LearningAgent.update(): deadline = 26, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 1.63682205004852}
+LearningAgent.update(): deadline = 25, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 2.9545305084747984, 'left': 0.0}
+LearningAgent.update(): deadline = 24, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 1.7134971973442275}
+LearningAgent.update(): deadline = 23, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 2.9764311988103667, 'left': 0.0}
+LearningAgent.update(): deadline = 22, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.07692307692307693, None: 1.6956799962773887, 'right': 0.0, 'left': -0.057533380840486315}
+LearningAgent.update(): deadline = 21, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': -0.07692307692307693, None: 1.7304623121060478, 'right': 0.0, 'left': -0.057533380840486315}
+LearningAgent.update(): deadline = 20, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 1.7718795854294307}
+LearningAgent.update(): deadline = 19, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+Environment.act(): Primary agent has reached destination!
+Simulator.run(): Trial 4
+Environment.reset(): Trial set up with start = (6, 3), destination = (8, 1), deadline = 20
+RoutePlanner.route_to(): destination = (8, 1)
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 1.8605331734963826}
+LearningAgent.update(): deadline = 20, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.0, None: 0.0, 'right': 0.6451071805355403, 'left': 0.0}
+LearningAgent.update(): deadline = 19, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 4.381144959048294, 'left': 0.0}
+LearningAgent.update(): deadline = 18, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 2.932724570367509}
+LearningAgent.update(): deadline = 17, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 4.755735295111742, 'left': 0.0}
+LearningAgent.update(): deadline = 16, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.25, None: 0.0, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 15, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': 'forward'}, action = forward, reward = -1
+{'forward': 0.5692359312588015, None: 0.0, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 14, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': 'forward'}, action = forward, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 3.16136851465449}
+LearningAgent.update(): deadline = 13, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 4.905571429537121, 'left': 0.0}
+LearningAgent.update(): deadline = 12, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 3.3192545932763906}
+LearningAgent.update(): deadline = 11, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 5.018780953325185, 'left': 0.0}
+LearningAgent.update(): deadline = 10, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': -0.3394812121212121, None: 0.0, 'right': 4.8586532248270204, 'left': 0.0}
+LearningAgent.update(): deadline = 9, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.310682151667595, None: 0.0, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 8, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': 'forward'}, action = forward, reward = 2
+{'forward': 0.0, None: 0.09542857142857143, 'right': 0.2857142857142857, 'left': 1.8871732595287374}
+LearningAgent.update(): deadline = 7, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 3.306650676456754}
+LearningAgent.update(): deadline = 6, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 4.843415175994048, 'left': 0.0}
+LearningAgent.update(): deadline = 5, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 3.3778561074126534}
+LearningAgent.update(): deadline = 4, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.3394812121212121, None: 0.0, 'right': 4.9078724862941225, 'left': 0.0}
+LearningAgent.update(): deadline = 3, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = right, reward = 2
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 3.3675283885019165}
+LearningAgent.update(): deadline = 2, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': 0.1, None: 0.0, 'right': 0.38933333333333336, 'left': 3.2368926860533898}
+LearningAgent.update(): deadline = 1, inputs = {'light': 'green', 'oncoming': None, 'right': None, 'left': None}, action = left, reward = 0.5
+{'forward': -0.5, None: 0.05263157894736842, 'right': 0.0, 'left': 0.0}
+LearningAgent.update(): deadline = 0, inputs = {'light': 'red', 'oncoming': None, 'right': None, 'left': None}, action = None, reward = 1
+Environment.reset(): Primary agent could not reach destination within deadline!

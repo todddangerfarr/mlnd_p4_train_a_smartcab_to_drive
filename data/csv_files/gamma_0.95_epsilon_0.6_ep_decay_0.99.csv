@@ -1,0 +1,6 @@
+Trial,Start Location,Desination,Deadline,Successful?
+Trial 0,"(4, 2)","(7, 5)",30,No
+Trial 1,"(2, 5)","(6, 5)",20,Yes
+Trial 2,"(8, 2)","(5, 1)",20,No
+Trial 3,"(3, 4)","(7, 1)",35,Yes
+Trial 4,"(3, 3)","(7, 1)",30,No
