@@ -129,7 +129,7 @@ def run(gamma=None, epsilon=None, epsilon_decay=None):
 
     # Now simulate it
     sim = Simulator(e, update_delay=0.00001)  # reduce update_delay to speed up simulation
-    sim.run(n_trials=5)  # press Esc or close pygame window to quit
+    sim.run(n_trials=100)  # press Esc or close pygame window to quit
 
 
 if __name__ == '__main__':

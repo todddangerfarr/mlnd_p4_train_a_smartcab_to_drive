@@ -48,7 +48,7 @@ def text_to_csv_parsing(txt_file):
 
 
 # Setup iteration values
-gamma_values = [(x / 100.0) for x in  range(75, 96, 5)] # possible gamma values (future reward multiplier)
+gamma_values = [(x / 100.0) for x in  range(70, 96, 5)] # possible gamma values (future reward multiplier)
 epsilon_values = [(x / 100.0) for x in range(40, 61, 10)] # possilbe epsilon values (Exploration vs Exploitation)
 epsilon_decay_values = [(x / 100.0) for x in range(93, 100, 2)] # epsilon decay values (GLIE Greedy Exploraiton vs Exploitation)
 
