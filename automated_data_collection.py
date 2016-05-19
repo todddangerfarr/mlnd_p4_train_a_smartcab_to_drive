@@ -17,14 +17,23 @@ def text_to_csv_parsing(txt_file):
     content = txt_file.readlines()
 
     #data to track
-    columns_to_track = ['Trial', 'Start Location', 'Desination', 'Deadline', 'Successful?']
+    columns_to_track = ['Trial', 'Gamma', 'Epsilon', 'Epsilon Decay',
+                        'Start Location', 'Desination', 'Deadline','Successful?']
     dframe = pd.DataFrame(columns=columns_to_track) #create empty dataframe
 
     #build one row of a time looking for columns to track data
     row = []
     for line in content:
+        if 'Gamma:' in line:
+            line_list = line.split(' ') #split on space
+            gamma = line_list[1][:-1] # get the gamma value
+            epsilon = line_list[3][:-1] # get the epsilon value
+            epsilon_decay = line_list[-1].strip() # get the epsilon decay value
         if 'Simulator.run()' in line:
             row.append(line[16:].strip())
+            row.append(gamma)
+            row.append(epsilon)
+            row.append(epsilon_decay)
         if 'Environment.reset(): Trial set' in line:
             row.append(line[47:53].strip()) # get Start location
             row.append(line[69:75].strip()) # get distination
@@ -34,7 +43,6 @@ def text_to_csv_parsing(txt_file):
                 row.append('No') #Not successful
             else:
                 row.append('Yes') #Successful
-
             #put in dataframe
             dframe = dframe.append(pd.Series(row, index=columns_to_track), ignore_index=True)
             row = [] #delete row data and start again
@@ -47,35 +55,30 @@ def text_to_csv_parsing(txt_file):
     return True
 
 
-# Setup iteration values
-gamma_values = [(x / 100.0) for x in  range(70, 96, 5)] # possible gamma values (future reward multiplier)
-epsilon_values = [(x / 100.0) for x in range(40, 61, 10)] # possilbe epsilon values (Exploration vs Exploitation)
-epsilon_decay_values = [(x / 100.0) for x in range(93, 100, 2)] # epsilon decay values (GLIE Greedy Exploraiton vs Exploitation)
-
-# for every combination of gamma, epsilon, and epsilon decay run smartcab program
-#for value in product(gamma_values, epsilon_values, epsilon_decay_values):
-for value in product(gamma_values, epsilon_values, epsilon_decay_values):
-    print value
+def iterative_data_collection(gamma_values, epsilon_values, epsilon_decay_values):
+    ''' Automate iterative data collection for a multiple gamma, epsilon and
+        epsilon decay values. '''
 
     # create dynamic file name
-    file_name = './data/txt_files/' + \
-        'gamma_' + str(value[0]) + \
-        '_epsilon_' + str(value[1]) + \
-        '_ep_decay_' + str(value[2]) + \
-        '.txt'
+    file_name = './data/txt_files/iteration_data.txt'
 
     # create file
-    f = open(file_name, "w+")
-    #create command string
-    command_string = 'python smartcab/agent.py ' + \
-                     'gamma=' + str(value[0]) + ' ' + \
-                     'epsilon=' + str(value[1]) + ' ' + \
-                     'ep_decay=' + str(value[2])
+    f = open(file_name, "w")
 
-    # subprocess to run smartcab program
-    args = shlex.split(command_string) # create subprocess args (a list of strings)
-    p = subprocess.Popen(args, stdout=f) # create subprocess
-    p.wait() # wait for subprocess to end
+    # for every combination of gamma, epsilon, and epsilon decay run smartcab program
+    for value in product(gamma_values, epsilon_values, epsilon_decay_values):
+        print value
+
+        #create command string
+        command_string = 'python smartcab/agent.py ' + \
+                         'gamma=' + str(value[0]) + ' ' + \
+                         'epsilon=' + str(value[1]) + ' ' + \
+                         'ep_decay=' + str(value[2])
+
+        # subprocess to run smartcab program
+        args = shlex.split(command_string) # create subprocess args (a list of strings)
+        p = subprocess.Popen(args, stdout=f) # create subprocess
+        p.wait() # wait for subprocess to end
 
     # close file
     f.close()
@@ -83,5 +86,57 @@ for value in product(gamma_values, epsilon_values, epsilon_decay_values):
     # parse the text to .csv file
     with open(file_name) as f1:
         complete = text_to_csv_parsing(f1)
+
+    return True
+
+
+def single_scenario_repeat_data_collection(gamma, epsilon, epsilon_decay, number_of_times):
+    ''' Automate repeated data collection for a single gamma, epsilon and
+        epsilon decay value. '''
+
+    #create a single file
+    file_name = './data/txt_files/' + \
+        'gamma_' + str(gamma) + \
+        '_epsilon_' + str(epsilon) + \
+        '_ep_decay_' + str(epsilon_decay) + \
+        '_number_of_times_' + str(number_of_times) + \
+        '.txt'
+
+    # create file
+    f = open(file_name, "w")
+
+    # creat the command string
+    command_string = 'python smartcab/agent.py ' + \
+                     'gamma=' + str(gamma) + ' ' + \
+                     'epsilon=' + str(epsilon) + ' ' + \
+                     'ep_decay=' + str(epsilon_decay)
+
+    # for each number of times run the smartcab program
+    for i in range(0, number_of_times):
+        print 'Iteration {}'.format(i) # print to command line
+        args = shlex.split(command_string) # create subprocess args (a list of strings)
+        p = subprocess.Popen(args, stdout=f) # create subprocess
+        p.wait() # wait for subprocess to end
+
+    # clost the file
+    f.close()
+
+    # parse the text to .csv file
+    with open(file_name) as f1:
+        complete = text_to_csv_parsing(f1)
+
+    return True
+
+
+# Setup iteration values
+gamma_values = [(x / 100.0) for x in  range(70, 96, 5)] # possible gamma values (future reward multiplier)
+epsilon_values = [(x / 100.0) for x in range(40, 61, 10)] # possilbe epsilon values (Exploration vs Exploitation)
+epsilon_decay_values = [(x / 100.0) for x in range(95, 100, 1)] # epsilon decay values (GLIE Greedy Exploraiton vs Exploitation)
+
+# call iterative data collection (comment out to do single values multiple times)
+iterative_data_collection(gamma_values, epsilon_values, epsilon_decay_values)
+
+# call single data collection (comment out to do iterative values multiple times)
+#single_scenario_repeat_data_collection(0.80, 0.5, 0.99, 2)
 
 print 'Finished!'
