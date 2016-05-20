@@ -23,14 +23,17 @@ def text_to_csv_parsing(txt_file):
 
     #build one row of a time looking for columns to track data
     row = []
+    main_trial = 0
     for line in content:
         if 'Gamma:' in line:
             line_list = line.split(' ') #split on space
             gamma = line_list[1][:-1] # get the gamma value
             epsilon = line_list[3][:-1] # get the epsilon value
             epsilon_decay = line_list[-1].strip() # get the epsilon decay value
+            main_trial += 1 # increment main trail (1.1, 1.2....2.1, 2.2.....etc.)
         if 'Simulator.run()' in line:
-            row.append(line[16:].strip())
+            trial = line[16:].strip() # get trial number
+            row.append(trial[:6] + str(main_trial) + '.' + trial[6:]) # splice in main trial
             row.append(gamma)
             row.append(epsilon)
             row.append(epsilon_decay)
@@ -55,12 +58,13 @@ def text_to_csv_parsing(txt_file):
     return True
 
 
-def iterative_data_collection(gamma_values, epsilon_values, epsilon_decay_values):
+def iterative_data_collection(gamma_values, epsilon_values, epsilon_decay_values,
+        appended_file_string=''):
     ''' Automate iterative data collection for a multiple gamma, epsilon and
         epsilon decay values. '''
 
     # create dynamic file name
-    file_name = './data/txt_files/iteration_data.txt'
+    file_name = './data/txt_files/iteration_data' + appended_file_string + '.txt'
 
     # create file
     f = open(file_name, "w")
@@ -129,12 +133,14 @@ def single_scenario_repeat_data_collection(gamma, epsilon, epsilon_decay, number
 
 
 # Setup iteration values
-gamma_values = [(x / 100.0) for x in  range(70, 96, 5)] # possible gamma values (future reward multiplier)
-epsilon_values = [(x / 100.0) for x in range(40, 61, 10)] # possilbe epsilon values (Exploration vs Exploitation)
+gamma_values = [(x / 100.0) for x in  range(80, 86, 5)] # possible gamma values (future reward multiplier)
+epsilon_values = [(x / 100.0) for x in range(50, 56, 5)] # possilbe epsilon values (Exploration vs Exploitation)
 epsilon_decay_values = [(x / 100.0) for x in range(95, 100, 1)] # epsilon decay values (GLIE Greedy Exploraiton vs Exploitation)
 
 # call iterative data collection (comment out to do single values multiple times)
-iterative_data_collection(gamma_values, epsilon_values, epsilon_decay_values)
+number_of_times = 5
+for i in range(0, number_of_times):
+    iterative_data_collection(gamma_values, epsilon_values, epsilon_decay_values, str(i))
 
 # call single data collection (comment out to do iterative values multiple times)
 #single_scenario_repeat_data_collection(0.80, 0.5, 0.99, 2)

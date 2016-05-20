@@ -25,7 +25,7 @@ class LearningAgent(Agent):
 
         # if gamma == 1, the agent values future reward just as much as current reward
         # learning doesn't work well at high gamma values because of this
-        self.gamma = 0.95 if gamma == None else gamma # future reward value multiplier
+        self.gamma = 0.80 if gamma == None else gamma # future reward value multiplier
 
         # setup empty Q-Table
         for light_state in ['green', 'red']: # cycle through light state possibilites
@@ -106,8 +106,8 @@ class LearningAgent(Agent):
 
         # Update Learning Rate - Udacity: Learning Incrementally: https://youtu.be/FtRJKOvI_fs
         # Need this so for Q Convergence - Udacity: https://youtu.be/BEJKu3LzWJ4
-        if t != 0:
-            self.alpha = 1.0 / t
+        # if t != 0:
+            # self.alpha = 1.0 / t
 
         #sanity check
         print self.Q[state]
