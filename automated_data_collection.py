@@ -133,16 +133,18 @@ def single_scenario_repeat_data_collection(gamma, epsilon, epsilon_decay, number
 
 
 # Setup iteration values
-gamma_values = [(x / 100.0) for x in  range(80, 86, 5)] # possible gamma values (future reward multiplier)
-epsilon_values = [(x / 100.0) for x in range(50, 56, 5)] # possilbe epsilon values (Exploration vs Exploitation)
-epsilon_decay_values = [(x / 100.0) for x in range(95, 100, 1)] # epsilon decay values (GLIE Greedy Exploraiton vs Exploitation)
+gamma_values = [(x / 100.0) for x in  range(30, 91, 10)] # possible gamma values (future reward multiplier)
+epsilon_values = [(x / 100.0) for x in range(50, 55, 10)] # possilbe epsilon values (Exploration vs Exploitation)
+epsilon_decay_values = [(x / 100.0) for x in range(90, 100, 3)] # epsilon decay values (GLIE Greedy Exploraiton vs Exploitation)
 
 # call iterative data collection (comment out to do single values multiple times)
-number_of_times = 5
-for i in range(0, number_of_times):
-    iterative_data_collection(gamma_values, epsilon_values, epsilon_decay_values, str(i))
+#print 'Total combinations: {}'.format(len(gamma_values)*len(epsilon_values)*len(epsilon_decay_values))
+#number_of_times = 5
+#for i in range(0, number_of_times):
+    #iterative_data_collection(gamma_values, epsilon_values, epsilon_decay_values, str(i))
 
 # call single data collection (comment out to do iterative values multiple times)
-#single_scenario_repeat_data_collection(0.80, 0.5, 0.99, 2)
+# these values were obtained from the iterative automated data collection 
+single_scenario_repeat_data_collection(0.50, 0.50, 0.99, 10)
 
 print 'Finished!'

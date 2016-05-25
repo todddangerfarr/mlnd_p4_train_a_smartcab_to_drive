@@ -21,11 +21,15 @@ class LearningAgent(Agent):
         self.Q = {} #hashable Q-Table
         self.epsilon = 0.5 if epsilon == None else epsilon # randomness 0.5 == 50% random action
         self.epsilon_decay = 0.99 if epsilon_decay == None else epsilon_decay #decay rate (multiplier) for GLIE
-        self.alpha = 0.2  # learning rate
+        self.alpha = 1.0  # learning rate, initally tried 0.2 constant
 
         # if gamma == 1, the agent values future reward just as much as current reward
         # learning doesn't work well at high gamma values because of this
-        self.gamma = 0.80 if gamma == None else gamma # future reward value multiplier
+        self.gamma = 0.50 if gamma == None else gamma # future reward value multiplier
+
+        # keep track of net reward
+        self.net_reward = 0
+        self.trial = 0
 
         # setup empty Q-Table
         for light_state in ['green', 'red']: # cycle through light state possibilites
@@ -47,6 +51,9 @@ class LearningAgent(Agent):
     def reset(self, destination=None):
         self.planner.route_to(destination)
         # TODO: Prepare for a new trip; reset any variables here, if required
+        self.state = None
+        self.trial += 1
+        self.net_reward = 0
 
 
     def update(self, t):
@@ -73,14 +80,14 @@ class LearningAgent(Agent):
                     max_Q = self.Q[self.state][possible_action]
 
         #GLIE (decayed epsilon) Udacity: https://youtu.be/yv8wJiQQ1rc
-        self.epsilon *= self.epsilon_decay
+        self.epsilon = 1 / (self.trial + self.epsilon_decay)
 
         # Execute action and get reward
         reward = self.env.act(self, best_action)
+        self.net_reward += reward # update total reward (used to verify net reward [performance indicator])
 
         # TODO: Learn policy based on state, action, reward
         # Estimating Q From Transitions - Udacity: https://youtu.be/Xr2U3BTkifQ
-        # need to calculate utility of the state
         state = self.state
 
         # STEP 1: First find utility of the next state
@@ -106,12 +113,14 @@ class LearningAgent(Agent):
 
         # Update Learning Rate - Udacity: Learning Incrementally: https://youtu.be/FtRJKOvI_fs
         # Need this so for Q Convergence - Udacity: https://youtu.be/BEJKu3LzWJ4
-        # if t != 0:
-            # self.alpha = 1.0 / t
+        # alpha update usually 1 / t
+        # alpha update found here: http://dreuarchive.cra.org/2001/manfredi/weeklyJournal/pricebot/node10.html
+        if self.trial != 0:
+            num_trials = 100
+            self.alpha = (1.0 * (num_trials / 10.0)) / ((num_trials / 10.0) + self.trial)
 
-        #sanity check
-        print self.Q[state]
-
+        # sanity check print area
+        print 'Net Reward {}, Alpha {}'.format(self.net_reward, self.alpha)
         print "LearningAgent.update(): deadline = {}, inputs = {}, action = {}, reward = {}".format(deadline, inputs, best_action, reward)  # [debug]
 
 
@@ -128,7 +137,7 @@ def run(gamma=None, epsilon=None, epsilon_decay=None):
             a.gamma, a.epsilon, a.epsilon_decay)
 
     # Now simulate it
-    sim = Simulator(e, update_delay=0.00001)  # reduce update_delay to speed up simulation
+    sim = Simulator(e, update_delay=0.000000001)  # reduce update_delay to speed up simulation
     sim.run(n_trials=100)  # press Esc or close pygame window to quit
 
 
@@ -140,6 +149,7 @@ if __name__ == '__main__':
     epsilon_index = [i for i, s in enumerate(arg_list) if 'epsilon' in s]
     epsilon_decay_index = [i for i, s in enumerate(arg_list) if 'ep_decay' in s]
 
+    # allows for command line or subprocess setting of variables
     # if args are in arg list split the values and save in variables
     gamma = float(arg_list[gamma_index[0]][7:]) if gamma_index else None
     epsilon = float(arg_list[epsilon_index[0]][9:]) if epsilon_index else None
