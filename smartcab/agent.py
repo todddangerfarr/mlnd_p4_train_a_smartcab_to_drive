@@ -113,10 +113,10 @@ class LearningAgent(Agent):
 
         # Update Learning Rate - Udacity: Learning Incrementally: https://youtu.be/FtRJKOvI_fs
         # Need this so for Q Convergence - Udacity: https://youtu.be/BEJKu3LzWJ4
-        # alpha update usually 1 / t
+        # alpha update originally 1 / trial
         # alpha update found here: http://dreuarchive.cra.org/2001/manfredi/weeklyJournal/pricebot/node10.html
         if self.trial != 0:
-            num_trials = 100
+            num_trials = 100 # FIX NEEDED: make this dynamic in the future
             self.alpha = (1.0 * (num_trials / 10.0)) / ((num_trials / 10.0) + self.trial)
 
         # sanity check print area
