@@ -23,8 +23,7 @@ Make sure you are in the top-level project directory `smartcab/` (that contains 
 
 OR:
 
-```python -m smartcab.agent
-```
+```python -m smartcab.agent```
 
 ## Automated Data Collection
 
@@ -35,14 +34,14 @@ To run the automated data collection uncomment the script according to single sc
 - set the number of times for each iteration
 - choose ranges and steps for Gamma, Epsilon and Epsilon Decay
 
-```
-  gamma_values = [(x / 100.0) for x in  range(30, 91, 10)]
-  epsilon_values = [(x / 100.0) for x in range(50, 55, 10)]
-  epsilon_decay_values = [(x / 100.0) for x in range(90, 100, 3)]
+```sh
+    gamma_values = [(x / 100.0) for x in  range(30, 91, 10)]
+    epsilon_values = [(x / 100.0) for x in range(50, 55, 10)]
+    epsilon_decay_values = [(x / 100.0) for x in range(90, 100, 3)]
 
-  number_of_times = 5
-    for i in range(0, number_of_times):
-    iterative_data_collection(gamma_values, epsilon_values, epsilon_decay_values, str(i))
+    number_of_times = 5
+        for i in range(0, number_of_times):
+        iterative_data_collection(gamma_values, epsilon_values, epsilon_decay_values, str(i))
 ```
 
 - Run ```python automated_data_collection.py```
@@ -51,8 +50,8 @@ To run the automated data collection uncomment the script according to single sc
 - Comment out the Iterative Data Collection Function Call
 - Set the variables for Gamma, Epsilon, Epsilon Decay and the number of times
 
-```
-  single_scenario_repeat_data_collection(0.50, 0.50, 0.99, 10)
+```sh
+    single_scenario_repeat_data_collection(0.50, 0.50, 0.99, 10)
 ```
 
 - Run ```python automated_data_collection.py```
